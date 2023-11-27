@@ -15,7 +15,9 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
   const createPageURL = (pageNumber : number | string) => {
     const params = new URLSearchParams(searchParams);
     params.set('page', pageNumber.toString());
+    
     //return `${pathname}?${params.toString()}`;
+    
     return {
       pathname,
       query: params.toString()
@@ -73,7 +75,7 @@ function PaginationNumber({
   position,
 }: {
   page: number | string;
-  href: string;
+  href: string | Object;
   position?: 'first' | 'last' | 'middle' | 'single';
   isActive: boolean;
 }) {
@@ -91,8 +93,10 @@ function PaginationNumber({
   return isActive || position === 'middle' ? (
     <div className={className}>{page}</div>
   ) : (
-    <Link href={{pathname:href}} className={className}>
-      {page}
+    
+    //<Link href={{pathname:href}} className={className}>
+    <Link href={href} className={className}>
+    {page}
     </Link>
   );
 }
@@ -102,7 +106,7 @@ function PaginationArrow({
   direction,
   isDisabled,
 }: {
-  href: string;
+  href: string | Object;
   direction: 'left' | 'right';
   isDisabled?: boolean;
 }) {
@@ -126,7 +130,9 @@ function PaginationArrow({
   return isDisabled ? (
     <div className={className}>{icon}</div>
   ) : (
-    <Link className={className} href={{pathname:href}}>
+    //<Link className={className} href={{pathname:href}}>
+    
+    <Link className={className} href={href}>
       {icon}
     </Link>
   );
