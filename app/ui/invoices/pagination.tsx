@@ -2,7 +2,7 @@
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import { generatePagination } from '@/app/lib/utils';
 import { usePathname, useSearchParams } from 'next/navigation';
 
@@ -75,7 +75,7 @@ function PaginationNumber({
   position,
 }: {
   page: number | string;
-  href: string | Object | UrlObject;
+  href: string | Object | LinkProps<Object>;
   position?: 'first' | 'last' | 'middle' | 'single';
   isActive: boolean;
 }) {
