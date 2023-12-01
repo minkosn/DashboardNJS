@@ -75,7 +75,7 @@ function PaginationNumber({
   position,
 }: {
   page: number | string;
-  href: string | Object | RouteImpl;
+  href: Object ;
   position?: 'first' | 'last' | 'middle' | 'single';
   isActive: boolean;
 }) {
